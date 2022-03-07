@@ -2,12 +2,9 @@ import React from 'react'
 import {Card, CardContent, Typography, Grid} from '@material-ui/core'
 import styles from './Cards.module.css'
 
-const Cards = ( data) => {
-  for (const item in data){
-    console.log("HERE",item);
-
-  }
-  if (!data) {
+const Cards = ({ data: {confirmed, recovered, deaths, lastUpdated}}) => {
+  console.log("HERE",confirmed);
+  if (!confirmed) {
     return 'Loading...';
   }
  
@@ -18,7 +15,7 @@ const Cards = ( data) => {
         <Grid item component ={Card}>
         <CardContent>
           <Typography color = "textSecondary" gutterBottom> Infected </Typography>
-          <Typography variant='h5'> value????</Typography>
+          <Typography variant='h5'> {confirmed.value}</Typography>
           <Typography color='textSecondary'>REAL DATE </Typography>
           <Typography variant='body2'> Number of Active cases of COVID 19</Typography>
         </CardContent>
